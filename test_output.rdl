@@ -1,0 +1,23 @@
+addrmap my_reg_block {
+    desc = "my_reg_block Register Map";
+
+    reg CTRL_REG @0x4 {
+        desc = "Control Register";
+        field {
+            sw = rw;
+            desc = "Enable bit";
+            reset = 1;
+        } ENABLE[0:0];
+        field {
+            sw = w;
+            desc = "Start bit";
+            reset = 0;
+        } START[1:1];
+        field {
+            sw = r;
+            desc = "Interrupt Status";
+            reset = 0;
+        } INT_STATUS[11:8];
+    };
+
+};

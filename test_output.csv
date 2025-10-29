@@ -1,0 +1,5 @@
+Reg_Name,Reg_Offset,Field_Name,Field_Lsb,Field_Width,Access,Reset,Description
+CTRL_REG,"0x4",,,,,"Control Register"
+,,ENABLE,0,1,RW,1,"Enable bit"
+,,START,1,1,WO,0,"Start bit"
+,,INT_STATUS,8,4,RO,0,"Interrupt Status"

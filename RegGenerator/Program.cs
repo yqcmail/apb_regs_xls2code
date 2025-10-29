@@ -7,17 +7,16 @@ namespace RegGenerator
     {
         static void Main(string[] args)
         {
-            if (args.Length == 2 && args[0] == "create_db")
+            if (args.Length == 2 && args[0] == "--generate-sample-db")
             {
-                TestDB.Create(args[1]);
-                Console.WriteLine($"Test database created at '{args[1]}'");
+                SampleDbGenerator.Create(args[1]);
+                Console.WriteLine($"Sample database created at '{args[1]}'");
                 return;
             }
 
             if (args.Length < 3)
             {
-                Console.WriteLine("Usage: RegGenerator <db_path> <verilog_out_path> <rdl_out_path> [xls_out_path]");
-                Console.WriteLine("Usage for test DB creation: RegGenerator create_db <db_path>");
+                PrintUsage();
                 return;
             }
 
@@ -74,6 +73,15 @@ namespace RegGenerator
                     Console.WriteLine($"Error generating XLS file: {ex.Message}");
                 }
             }
+        }
+
+        static void PrintUsage()
+        {
+            Console.WriteLine("Usage:");
+            Console.WriteLine("  RegGenerator <db_path> <verilog_out_path> <rdl_out_path> [xls_out_path]");
+            Console.WriteLine();
+            Console.WriteLine("Commands:");
+            Console.WriteLine("  --generate-sample-db <output_db_path>   Creates a sample SQLite database with example data.");
         }
     }
 }

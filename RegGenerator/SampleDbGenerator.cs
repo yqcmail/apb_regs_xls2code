@@ -1,6 +1,6 @@
 using System.Data.SQLite;
 
-public class TestDB
+public class SampleDbGenerator
 {
     public static void Create(string dbPath)
     {
